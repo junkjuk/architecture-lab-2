@@ -60,6 +60,7 @@ func TestPrefixToPostfix7(t *testing.T) {
 	}
 }
 
+// Example demonstrates how to use PrefixToPostfix function.
 func ExamplePrefixToPostfix() {
 	res, _ := PrefixToPostfix("- 5 8")
 	fmt.Println(res)
