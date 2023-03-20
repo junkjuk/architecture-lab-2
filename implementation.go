@@ -2,6 +2,7 @@ package lab2
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -22,8 +23,10 @@ func PrefixToPostfix(input string) (string, error) {
 
 			var result = firstOperand + " " + secondOperand + " " + parts[i]
 			stack = append(stack, result)
-		} else {
+		} else if isNumber(parts[i]) {
 			stack = append(stack, parts[i])
+		} else {
+			return "", fmt.Errorf("incorrect prefix expression")
 		}
 	}
 	return strings.Join(stack, " "), nil
@@ -37,4 +40,9 @@ func isOperator(value string) bool {
 	default:
 		return false
 	}
+}
+
+func isNumber(value string) bool {
+	_, err := strconv.Atoi(value)
+	return err == nil
 }

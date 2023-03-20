@@ -17,7 +17,7 @@ func TestPrefixToPostfix1(t *testing.T) {
 func TestPrefixToPostfix2(t *testing.T) {
 	res, err := PrefixToPostfix("* - 2 4 1")
 	if assert.Nil(t, err) {
-		assert.Equal(t, "1 2 4 - *", res)
+		assert.Equal(t, "2 4 - 1 *", res)
 	}
 }
 
@@ -31,7 +31,7 @@ func TestPrefixToPostfix3(t *testing.T) {
 func TestPrefixToPostfix4(t *testing.T) {
 	res, err := PrefixToPostfix("/ * + - - 3 5 1 9 + + + 3 4 9 2 8")
 	if assert.Nil(t, err) {
-		assert.Equal(t, "3 4 9 2 + + + + 3 5 - 1 - 9 + * 8 /", res)
+		assert.Equal(t, "3 5 - 1 - 9 + 3 4 + 9 + 2 + * 8 /", res)
 	}
 }
 
@@ -40,7 +40,7 @@ func TestPrefixToPostfix5(t *testing.T) {
 
 	assert.NotNil(t, err)
 	if assert.Error(t, err) {
-		assert.Equal(t, fmt.Errorf("Inappropriate input"), err)
+		assert.Equal(t, fmt.Errorf("incorrect prefix expression"), err)
 	}
 }
 func TestPrefixToPostfix6(t *testing.T) {
@@ -48,7 +48,7 @@ func TestPrefixToPostfix6(t *testing.T) {
 
 	assert.NotNil(t, err)
 	if assert.Error(t, err) {
-		assert.Equal(t, fmt.Errorf("Inappropriate input"), err)
+		assert.Equal(t, fmt.Errorf("incorrect prefix expression"), err)
 	}
 }
 func TestPrefixToPostfix7(t *testing.T) {
@@ -56,7 +56,7 @@ func TestPrefixToPostfix7(t *testing.T) {
 
 	assert.NotNil(t, err)
 	if assert.Error(t, err) {
-		assert.Equal(t, fmt.Errorf("Inappropriate input"), err)
+		assert.Equal(t, fmt.Errorf("incorrect prefix expression"), err)
 	}
 }
 
