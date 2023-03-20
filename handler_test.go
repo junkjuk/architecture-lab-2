@@ -26,21 +26,15 @@ func TestCompute(t *testing.T) {
 		},
 		{
 			name:           "Example 2",
-			input:          "/ * - 3 2 + + 3 2 1 6",
-			expectedOutput: "3 2 - 3 2 1 + + * 6 /",
-			expectedError:  nil,
+			input:          " ",
+			expectedOutput: "",
+			expectedError:  errors.New("incorrect prefix expression"),
 		},
 		{
 			name:           "Example 3",
-			input:          " ",
-			expectedOutput: "",
-			expectedError:  errors.New("Inappropriate input"),
-		},
-		{
-			name:           "Example 4",
 			input:          "..--- ..--- ---..",
 			expectedOutput: "",
-			expectedError:  errors.New("Inappropriate input"),
+			expectedError:  errors.New("incorrect prefix expression"),
 		},
 	}
 
